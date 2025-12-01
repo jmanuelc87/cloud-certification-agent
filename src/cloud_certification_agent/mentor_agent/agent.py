@@ -2,7 +2,7 @@ import os
 
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
-from google.adk.agents.llm_agent import Agent
+from google.adk.agents import Agent, SequentialAgent
 from cloud_certification_agent.common.load_prompts import load_agent_config
 
 
@@ -33,12 +33,28 @@ class StudyPlan(BaseModel):
     subjects: list[Subject] = Field(description="Each week subject")
 
 
-root_agent = Agent(
-    name="mentor_agent",
+create_plan_agent = Agent(
+    name="create_plan_agent",
     model=LLM_AGENT,
     description=agent_config["description"],
     instruction=agent_config["instruction"],
     tools=[],
     output_key="study_plan",
     output_schema=StudyPlan,
+)
+
+
+agent_config = load_agent_config("summarize")
+
+
+summarize_agent = Agent(
+    name="summarize_agent",
+    model=LLM_AGENT,
+    description=agent_config["description"],
+    instruction=agent_config["instruction"],
+)
+
+
+root_agent = SequentialAgent(
+    name="mentor_agent", sub_agents=[create_plan_agent, summarize_agent]
 )
