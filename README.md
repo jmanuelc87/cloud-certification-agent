@@ -64,7 +64,7 @@ flowchart LR
         [Container]
         An agent that help students create a learning path`"]
 
-        Teacher["`**Teacher Agent **
+        Teacher["`**Teacher Agent**
         [Container]
         An agent that helps students in their learning process`"]
 
