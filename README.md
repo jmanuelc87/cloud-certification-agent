@@ -16,7 +16,7 @@ flowchart TD
         [Software System]
         An agent capable of helping students to get their certifications`"]
 
-        RAG["`**RAG Agent**
+        RAG["`**RAG Pipeline**
         [Software Sytem]
         Process documents and scrape web pages`"]
     end
@@ -83,10 +83,10 @@ flowchart LR
     end
 
 
-    subgraph RAG[RAG Agent]
+    subgraph RAG[RAG Pipeline]
         direction LR
 
-        Seed["`**Seed Agent**
+        Seed["`**Seeder**
         [Container]
         Creates a list of possible sites that contain information`"]
 
