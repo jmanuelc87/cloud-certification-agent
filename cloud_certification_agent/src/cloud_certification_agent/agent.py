@@ -1,10 +1,8 @@
 import os
 
 from dotenv import load_dotenv
-from cloud_certification_agent.common.common import save_to_state
 from cloud_certification_agent.mentor_agent import mentor_agent
 from cloud_certification_agent.simulator_exam_agent import simulator_exam_agent
-from google.adk.tools.function_tool import FunctionTool
 from google.adk.tools.agent_tool import AgentTool
 from google.adk.agents.llm_agent import Agent
 
@@ -31,6 +29,5 @@ root_agent = Agent(
     tools=[
         AgentTool(mentor_agent),
         AgentTool(simulator_exam_agent),
-        FunctionTool(save_to_state),
     ],
 )
