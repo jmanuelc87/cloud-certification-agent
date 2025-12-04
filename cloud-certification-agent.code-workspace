@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "cloud_certification_agent"
+		},
+		{
+			"path": "rag_pipeline"
+		}
+	],
+	"settings": {}
+}
